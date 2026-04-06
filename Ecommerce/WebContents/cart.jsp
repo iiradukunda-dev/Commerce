@@ -1,7 +1,5 @@
 <%@ page import="javax.servlet.http.*" %>
 <%
-    HttpSession session = request.getSession(false);
-
     if(session == null || session.getAttribute("email") == null) {
         response.sendRedirect("SignIn.jsp");
         return;
@@ -55,7 +53,7 @@
 
         for(int i = 0; i < items.length; i++) {
             out.println(items[i] + 
-            " <a href='Cart.jsp?index=" + i + "'>Remove</a><br>");
+            " <a href='cart.jsp?index=" + i + "'>Remove</a><br>");
         }
     }
 %>
