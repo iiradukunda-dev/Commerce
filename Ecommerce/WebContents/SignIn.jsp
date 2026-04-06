@@ -7,7 +7,7 @@
 <title>SignIn here</title>
 </head>
 <body>
-	<form action="" method="post">
+	<form action="SignInServlet" method="post">
 		<p>Sign in to this page</p><br>
 		<input type="email" name="email" placeholder="email" required><br>
 		<input type="password" name="password" placeholder="password" required><br>

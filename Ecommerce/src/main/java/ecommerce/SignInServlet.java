@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class SignInServlet
@@ -40,6 +41,18 @@ public class SignInServlet extends HttpServlet {
 			statement.setString(1, email);
 			statement.setString(0, password);
 			
+			result=statement.executeQuery();
+			if(result.next()) {
+				HttpSession session=request.getSession();
+				session.setAttribute("email", email);
+				response.sendRedirect("product.jsp");
+				
+				statement.close();
+				conn.close();
+				result.close();
+			}else {
+				out.println("Failed to login");
+			}
 			
 		}catch(Exception e){
 			e.getStackTrace();
