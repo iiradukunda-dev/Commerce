@@ -36,10 +36,10 @@ public class SignInServlet extends HttpServlet {
 		
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce/","root","");
-			statement=conn.prepareStatement("SELECT * FROM users WHERE email='?' AND password='?'");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce","root","");
+			statement=conn.prepareStatement("SELECT * FROM users WHERE email=? AND password=?");
 			statement.setString(1, email);
-			statement.setString(0, password);
+			statement.setString(2, password);
 			
 			result=statement.executeQuery();
 			if(result.next()) {
@@ -51,11 +51,13 @@ public class SignInServlet extends HttpServlet {
 				conn.close();
 				result.close();
 			}else {
-				out.println("Failed to login");
+//				out.println("Failed to login");
+				response.sendRedirect("SignIn.jsp?status=InvalidCredentials");
 			}
 			
 		}catch(Exception e){
 			e.getStackTrace();
+			out.println("The error is "+e.getMessage());
 		}
 	}
 
