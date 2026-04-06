@@ -19,7 +19,7 @@
 		<input type="hidden" name="product" value="100">
 		Laptop 100$ <button type="submit">Add to Cart</button>
 	</form>
-	<form action="AddToCartServlet">
+	<form action="AddToCartServlet" method="post">
 		<input type="hidden" name="product" value="200">
 		Phone 90$ <button type="submit">Add to Cart</button>
 	</form>
