@@ -59,7 +59,7 @@
 %>
 
 <br>
-<a href="Checkout.jsp">Checkout</a>
+<a href="checkout.jsp">Checkout</a>
 
 </body>
 </html>
