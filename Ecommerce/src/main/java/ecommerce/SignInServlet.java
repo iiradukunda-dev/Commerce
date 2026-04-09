@@ -57,8 +57,6 @@ public class SignInServlet extends HttpServlet {
 			
 		}catch(Exception e){
 			e.getStackTrace();
-			out.println("The error is "+e.getMessage());
 		}
-	}
-
-}
+		
+	}}
